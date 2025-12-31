@@ -523,4 +523,10 @@ section>p {
         width: 100%;
         justify-content: center;
     }
+
+    /* Mobile Video Enhancement */
+    .video-card::before {
+        opacity: 1;
+        /* Always visible on mobile */
+    }
 }
