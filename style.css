@@ -313,27 +313,61 @@ section>p {
     gap: 3rem;
 }
 
-.project-card {
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-}
-
-.project-grid iframe {
+.video-card {
+    position: relative;
     width: 100%;
+    aspect-ratio: 16 / 9;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    overflow: hidden;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    /* Space for the border */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-grid iframe:hover {
+.video-card::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(transparent, #4a00e0, #f39c12, transparent 30%);
+    animation: rotate 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-card:hover::before {
+    opacity: 1;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.video-card iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 13px;
+    /* Slightly smaller to fit inside padding */
+    border: none;
+    background: var(--bg-color);
+    z-index: 1;
+    position: relative;
+}
+
+.video-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .project-card img {
