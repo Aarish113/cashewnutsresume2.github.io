@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
+            document.documentElement.classList.toggle('light-theme-base');
 
             const isLight = document.body.classList.contains('light-theme');
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
@@ -21,6 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 themeIcon.src = isLight ? 'sun.png' : 'moon.png';
             }
         });
+    }
+
+    // Initial sync for html class
+    if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme-base');
     }
 
     // Email Copy to Clipboard

@@ -1,6 +1,6 @@
 :root {
-    --bg-color: #121212;
-    --sidebar-bg: #111111;
+    --bg-color: rgba(18, 18, 18, 0.4);
+    --sidebar-bg: rgba(17, 17, 17, 0.6);
     --text-color: #e0e0e0;
     --text-heading: #ffffff;
     --text-muted: #888;
@@ -12,8 +12,8 @@
 }
 
 body.light-theme {
-    --bg-color: #f5f5f5;
-    --sidebar-bg: #ffffff;
+    --bg-color: rgba(245, 245, 245, 0.4);
+    --sidebar-bg: rgba(255, 255, 255, 0.6);
     --text-color: #333333;
     --text-heading: #000000;
     --text-muted: #555555;
@@ -29,13 +29,37 @@ body.light-theme {
     box-sizing: border-box;
 }
 
+html {
+    background-color: #121212;
+}
+
+html.light-theme-base {
+    background-color: #f5f5f5;
+}
+
 body {
-    background-color: var(--bg-color);
+    background-color: transparent;
     color: var(--text-color);
     font-family: var(--font-main);
     height: 100vh;
     overflow: hidden;
     transition: background-color 0.3s, color 0.3s;
+    position: relative;
+}
+
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 1.0;
 }
 
 a {
@@ -52,6 +76,8 @@ a {
 .sidebar {
     width: 350px;
     background-color: var(--sidebar-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -222,6 +248,8 @@ a {
     overflow-y: auto;
     padding: 2rem 5rem;
     background-color: var(--bg-color);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     transition: background-color 0.3s;
 }
 
