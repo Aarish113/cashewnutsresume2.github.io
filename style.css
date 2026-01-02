@@ -1,26 +1,26 @@
 :root {
-    --bg-color: rgba(18, 18, 18, 0.4);
-    --sidebar-bg: rgba(17, 17, 17, 0.6);
+    --bg-color: rgba(10, 10, 10, 0.3);
+    --sidebar-bg: rgba(15, 15, 15, 0.5);
     --text-color: #e0e0e0;
     --text-heading: #ffffff;
-    --text-muted: #888;
-    --text-dim: #666;
+    --text-muted: #aaa;
+    --text-dim: #888;
     --accent-color: #f39c12;
-    --card-bg: #2d2d2d;
-    --border-color: #222;
+    --card-bg: rgba(45, 45, 45, 0.6);
+    --border-color: rgba(255, 255, 255, 0.1);
     --font-main: 'Poppins', sans-serif;
 }
 
 body.light-theme {
-    --bg-color: rgba(245, 245, 245, 0.4);
-    --sidebar-bg: rgba(255, 255, 255, 0.6);
-    --text-color: #333333;
+    --bg-color: rgba(255, 255, 255, 0.3);
+    --sidebar-bg: rgba(255, 255, 255, 0.5);
+    --text-color: #1a1a1a;
     --text-heading: #000000;
-    --text-muted: #555555;
-    --text-dim: #777777;
+    --text-muted: #444444;
+    --text-dim: #666666;
     --accent-color: #e67e22;
-    --card-bg: #ffffff;
-    --border-color: #dcdde1;
+    --card-bg: rgba(255, 255, 255, 0.6);
+    --border-color: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -60,6 +60,11 @@ body {
     object-fit: cover;
     pointer-events: none;
     opacity: 1.0;
+    transition: opacity 0.3s;
+}
+
+body.light-theme #bg-video {
+    opacity: 0;
 }
 
 a {
@@ -76,8 +81,8 @@ a {
 .sidebar {
     width: 350px;
     background-color: var(--sidebar-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -248,8 +253,8 @@ a {
     overflow-y: auto;
     padding: 2rem 5rem;
     background-color: var(--bg-color);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
     transition: background-color 0.3s;
 }
 

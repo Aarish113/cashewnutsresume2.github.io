@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const emailText = emailContainer.querySelector('span').innerText;
             navigator.clipboard.writeText(emailText).then(() => {
+                console.log('Email copied to clipboard:', emailText);
                 emailContainer.innerHTML = '<i class="fas fa-check" style="color: #2ecc71;"></i> <span>Copied!</span>';
 
                 setTimeout(() => {
