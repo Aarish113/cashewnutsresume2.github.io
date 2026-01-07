@@ -18,12 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Trigger staggered animations
                 initializeAnimations();
 
-                // Show background video AFTER components have loaded (delayed)
+                // Load and start background video AFTER components have loaded (delayed)
                 setTimeout(() => {
                     if (bgVideo) {
+                        // Load the video source
+                        const source = bgVideo.querySelector('source');
+                        if (source && source.dataset.src) {
+                            source.src = source.dataset.src;
+                            bgVideo.load(); // Load the video
+                            bgVideo.play().catch(err => console.log('Video autoplay prevented:', err)); // Start playing
+                        }
+                        // Show the video
                         bgVideo.classList.add('show');
                     }
-                }, 1000); // Video appears 1s after page components
+                }, 1000); // Video loads and plays 1s after page components
             }, 600);
         }, 500); // Show preloader for at least 500ms
     });
