@@ -1,4 +1,79 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Preloader and Page Load Animation
+    const preloader = document.getElementById('preloader');
+    const container = document.querySelector('.container');
+
+    // Wait for all critical resources to load
+    window.addEventListener('load', () => {
+        // Minimum display time for preloader (aesthetic purposes)
+        setTimeout(() => {
+            preloader.classList.add('fade-out');
+
+            // Remove preloader from DOM after fade
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                container.classList.add('loaded');
+
+                // Trigger staggered animations
+                initializeAnimations();
+            }, 600);
+        }, 500); // Show preloader for at least 500ms
+    });
+
+    // Initialize staggered animations
+    function initializeAnimations() {
+        const sidebar = document.querySelector('.sidebar');
+        const content = document.querySelector('.content');
+        const profileSection = document.querySelector('.profile-section');
+        const skillsSection = document.querySelector('.skills-section');
+        const latestWorkSection = document.querySelector('.latest-work-section');
+        const sections = document.querySelectorAll('section');
+        const videoCards = document.querySelectorAll('.video-card');
+
+        // Sidebar slides in from left
+        if (sidebar) {
+            sidebar.classList.add('slide-in-left');
+        }
+
+        // Content slides in from right
+        if (content) {
+            content.classList.add('slide-in-right');
+        }
+
+        // Stagger profile elements
+        if (profileSection) {
+            setTimeout(() => {
+                profileSection.classList.add('fade-in');
+            }, 200);
+        }
+
+        if (skillsSection) {
+            setTimeout(() => {
+                skillsSection.classList.add('slide-in-up');
+            }, 400);
+        }
+
+        if (latestWorkSection) {
+            setTimeout(() => {
+                latestWorkSection.classList.add('slide-in-up');
+            }, 600);
+        }
+
+        // Stagger main content sections
+        sections.forEach((section, index) => {
+            setTimeout(() => {
+                section.classList.add('slide-in-up');
+            }, 300 + (index * 150));
+        });
+
+        // Stagger video cards
+        videoCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('fade-in');
+            }, 800 + (index * 100));
+        });
+    }
+
     const themeToggle = document.querySelector('.theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
 
