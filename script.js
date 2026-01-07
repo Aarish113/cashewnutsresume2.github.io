@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (bgVideo) {
                         bgVideo.classList.add('show');
                     }
-                }, 1500); // Video appears 1.5s after page components
+                }, 1000); // Video appears 1s after page components
             }, 600);
         }, 500); // Show preloader for at least 500ms
     });
