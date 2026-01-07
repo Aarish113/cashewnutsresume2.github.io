@@ -68,6 +68,17 @@ body.light-theme {
     font-weight: 700;
     letter-spacing: 2px;
     animation: pulse 2s ease-in-out infinite;
+    margin-bottom: 0.5rem;
+}
+
+.loader-subtitle {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    animation: fadeInScale 1s ease-out 0.3s forwards;
+    opacity: 0;
 }
 
 @keyframes spin {

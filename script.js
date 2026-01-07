@@ -15,13 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 preloader.style.display = 'none';
                 container.classList.add('loaded');
 
-                // Show background video
-                if (bgVideo) {
-                    bgVideo.classList.add('show');
-                }
-
                 // Trigger staggered animations
                 initializeAnimations();
+
+                // Show background video AFTER components have loaded (delayed)
+                setTimeout(() => {
+                    if (bgVideo) {
+                        bgVideo.classList.add('show');
+                    }
+                }, 1500); // Video appears 1.5s after page components
             }, 600);
         }, 500); // Show preloader for at least 500ms
     });
