@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Preloader and Page Load Animation
     const preloader = document.getElementById('preloader');
     const container = document.querySelector('.container');
+    const bgVideo = document.getElementById('bg-video');
 
     // Wait for all critical resources to load
     window.addEventListener('load', () => {
@@ -13,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 preloader.style.display = 'none';
                 container.classList.add('loaded');
+
+                // Show background video
+                if (bgVideo) {
+                    bgVideo.classList.add('show');
+                }
 
                 // Trigger staggered animations
                 initializeAnimations();
