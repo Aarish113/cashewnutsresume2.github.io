@@ -9,30 +9,21 @@
     --primary-color: #4a00e0;
     --secondary-color: #8e2de2;
     --accent-color: #f39c12;
-    --bg-color: #0d0d0d;
-    --sidebar-bg: rgba(20, 20, 20, 0.8);
+    --bg-color: rgba(13, 13, 13, 0.55);
+    --sidebar-bg: rgba(20, 20, 20, 0.55);
     --text-color: #ffffff;
     --text-muted: #b3b3b3;
     --border-color: rgba(255, 255, 255, 0.1);
 }
 
 .light-theme {
-    --bg-color: #f8f9fa;
-    --sidebar-bg: rgba(255, 255, 255, 0.85);
+    --bg-color: rgba(248, 249, 250, 0.55);
+    --sidebar-bg: rgba(255, 255, 255, 0.55);
     --text-color: #1a1a1a;
     --text-muted: #666666;
     --border-color: rgba(0, 0, 0, 0.1);
 }
 
-body {
-    font-family: var(--font-main);
-    color: var(--text-color);
-    line-height: 1.6;
-    overflow-x: hidden;
-    height: 100vh;
-    background-color: var(--bg-color);
-    perspective: 1000px;
-}
 
 /* Scroll Progress Bar */
 .scroll-progress-container {
@@ -222,21 +213,23 @@ body {
 }
 
 html {
-    background-color: #121212;
+    background-color: transparent !important;
 }
 
 html.light-theme-base {
-    background-color: #f5f5f5;
+    background-color: transparent !important;
 }
 
 body {
-    background-color: transparent;
+    background-color: transparent !important;
     color: var(--text-color);
     font-family: var(--font-main);
+    line-height: 1.6;
     height: 100vh;
     overflow: hidden;
     transition: background-color 0.3s, color 0.3s;
     position: relative;
+    perspective: 1000px;
 }
 
 #bg-video {
@@ -261,6 +254,7 @@ body {
     visibility: visible;
 }
 
+/* Search Modal Styles */
 /* Search Modal Styles */
 .search-modal {
     display: none;
@@ -443,12 +437,24 @@ a {
     opacity: 1;
 }
 
+.content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    position: relative;
+    background-color: var(--bg-color);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    transition: background-color 0.3s;
+}
+
 /* Sidebar */
 .sidebar {
     width: 350px;
     background-color: var(--sidebar-bg);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
     padding: 2rem;
     display: flex;
     flex-direction: column;
